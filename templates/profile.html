@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人主页——铁牌计划</title>
+</head>
+<body>
+<div class="profile">
+    <p>个人资料</p>
+    <table>
+        <tr>
+            <td>用户ID：</td>
+            <td>{{ user.username }}</td>
+        </tr>
+    </table>
+    {% include "add_account.html" %}
+    {% include "add_problem_set.html" %}
+    <p>你的账号</p>
+    <table>
+        <tr>
+            <td>OJ平台</td>
+            <td>用户Id</td>
+        </tr>
+        {% for account in accList %}
+            <tr>
+                <td>
+                    {{ account.platform.name }}
+                </td>
+                <td>
+                    {{ account.userId }}
+                </td>
+            </tr>
+        {% endfor %}
+
+    </table>
+    <table>
+        <tr>
+            <td>OJ平台</td>
+            <td>题号</td>
+            <td>状态</td>
+        </tr>
+        {% for problem in prob_list %}
+            <tr>
+                <td>
+                    {{ problem.problem.platform.name }}
+                </td>
+                <td>
+                    <a href="{{ problem.problem.url }}">
+                        {{ problem.problem.probId }}
+                    </a>
+                </td>
+                <td>
+
+                    {{ problem.is_AC }}
+                </td>
+            </tr>
+        {% endfor %}
+
+    </table>
+</div>
+</body>
+</html>

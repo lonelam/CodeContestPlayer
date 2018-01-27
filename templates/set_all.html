@@ -1,0 +1,21 @@
+<table>
+    <tr>
+        <td>题集名</td>
+        <td>作者</td>
+    </tr>
+    {% for set in set_list %}
+        <tr>
+            <td>
+                <a href="/problem_set/?setId={{ set.id }}">
+                    {{ set.setName }}
+                </a>
+            </td>
+            <td>
+                {{ set.author }}
+            </td>
+        </tr>
+    {% endfor %}
+
+</table>
+</body>
+</html>

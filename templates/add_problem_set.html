@@ -1,0 +1,6 @@
+<form action="/add_problem_set/" , method="post">
+    {% csrf_token %}
+    <label for="new_name">问题集名称</label><input id="new_name" name="name" type="text">
+    <label for="auther_name">作者</label><input id="auther_name" name="author" type="text">
+    <input type="submit" value="添加">
+</form>

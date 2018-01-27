@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>问题列表</title>
+</head>
+<body>
+<h1>{{ set.setName }}</h1>
+{% if is_creater %}
+    {% include "insert_problem_to_set.html" %}
+{% endif %}
+<table>
+    <tr>
+        <td>OJ平台</td>
+        <td>题号</td>
+        <td>标题</td>
+        <td>状态</td>
+    </tr>
+    {% for problem in prob_list %}
+        <tr>
+            <td>
+                {{ problem.platform.name }}
+            </td>
+            <td>
+                <a href="{{ problem.url }}">
+                    {{ problem.probId }}
+                </a>
+            </td>
+            <td>
+                {{ problem.title }}
+            </td>
+            <td>
+                {{ problem.state }}
+            </td>
+        </tr>
+    {% endfor %}
+
+</table>
+</body>
+</html>

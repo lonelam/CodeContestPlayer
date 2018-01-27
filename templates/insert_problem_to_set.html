@@ -1,0 +1,11 @@
+<form action="/insert_problem_to_set/" , method="post">
+    {% csrf_token %}
+    <select name="OJname">
+        {% for oj in oj_list %}
+            <option value="{{ oj.name }}">{{ oj.name }}</option>
+        {% endfor %}
+    </select>
+    <label for="new_id">问题Id</label><input id="new_id" name="prob_id" type="text">
+    <label for="set_id">问题集号</label><input id="set_id" name="set_id" type="text" readonly="true" value="{{ set.id }}">
+    <input type="submit" value="添加">
+</form>

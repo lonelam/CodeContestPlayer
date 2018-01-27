@@ -1,0 +1,10 @@
+<form action="/add_account/" , method="post">
+    {% csrf_token %}
+    <select name="OJname">
+        {% for oj in oj_list %}
+            <option value="{{ oj.name }}">{{ oj.name }}</option>
+        {% endfor %}
+    </select>
+    <label for="new_id">OJ用户名</label><input id="new_id" name="new_id" type="text">
+    <input type="submit" value="添加">
+</form>
